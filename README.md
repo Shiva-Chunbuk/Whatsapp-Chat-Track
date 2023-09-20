@@ -1,2 +1,2 @@
 # Whatsapp-Chat-Track
-#DEMO : https://whatsapp-chat-track.streamlit.app/
+#DEMO : whatsapp-chat-track.streamlit.app/
