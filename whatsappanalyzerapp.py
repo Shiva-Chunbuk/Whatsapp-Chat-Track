@@ -9,8 +9,8 @@ import webbrowser
 st.title("WhatsApp Chat Track")
 st.text("Created By Shiva Chunbuk")
 
-if st.button("[Export WhatsApp Chat](https://web.whatsapp.com/)"):
-    st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
+if st.button("Export WhatsApp Chat"): st.markdown(f'<a href="https://web.whatsapp.com/" target="_blank">Click here to export WhatsApp chat</a>', unsafe_allow_html=True); st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
+
 
 # File uploader
 uploaded_file = st.file_uploader("Choose a file")
