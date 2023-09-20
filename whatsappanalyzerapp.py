@@ -3,10 +3,10 @@ import preprocessor,helper
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.sidebar.title("Whatsapp Chat Track")
-st.sidebar.text(" Created By Shiva Chunbuk") 
+st.title("Whatsapp Chat Track")
+st.text("Created By Shiva Chunbuk")
 
-uploaded_file = st.sidebar.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data = bytes_data.decode("utf-8")
@@ -18,9 +18,9 @@ if uploaded_file is not None:
     user_list.sort()
     user_list.insert(0,"Overall")
 
-    selected_user = st.sidebar.selectbox("Show analysis wrt",user_list)
+    selected_user = st.selectbox("Show analysis wrt",user_list)
 
-    if st.sidebar.button("Show Analysis"):
+    if st.button("Show Analysis"):
 
         # Stats Area
         num_messages, words, num_media_messages, num_links = helper.fetch_stats(selected_user,df)
@@ -40,7 +40,7 @@ if uploaded_file is not None:
             st.header("Links Shared")
             st.title(num_links)
 
-        # monthly timeline
+        # Monthly timeline
         st.title("Monthly Timeline")
         timeline = helper.monthly_timeline(selected_user,df)
         fig,ax = plt.subplots()
@@ -48,7 +48,7 @@ if uploaded_file is not None:
         plt.xticks(rotation='vertical')
         st.pyplot(fig)
 
-        # daily timeline
+        # Daily timeline
         st.title("Daily Timeline")
         daily_timeline = helper.daily_timeline(selected_user, df)
         fig, ax = plt.subplots()
@@ -56,7 +56,7 @@ if uploaded_file is not None:
         plt.xticks(rotation='vertical')
         st.pyplot(fig)
 
-        # activity map
+        # Activity map
         st.title('Activity Map')
         col1,col2 = st.columns(2)
 
@@ -82,7 +82,7 @@ if uploaded_file is not None:
         ax = sns.heatmap(user_heatmap)
         st.pyplot(fig)
 
-        # finding the busiest users in the group(Group level)
+        # Finding the busiest users in the group (Group level)
         if selected_user == 'Overall':
             st.title('Most Busy Users')
             x,new_df = helper.most_busy_users(df)
@@ -104,7 +104,7 @@ if uploaded_file is not None:
         ax.imshow(df_wc)
         st.pyplot(fig)
 
-        # most common words
+        # Most common words
         most_common_df = helper.most_common_words(selected_user,df)
 
         fig,ax = plt.subplots()
@@ -112,10 +112,10 @@ if uploaded_file is not None:
         ax.barh(most_common_df[0],most_common_df[1])
         plt.xticks(rotation='vertical')
 
-        st.title('Most commmon words')
+        st.title('Most common words')
         st.pyplot(fig)
 
-        # emoji analysis
+        # Emoji analysis
         emoji_df = helper.emoji_helper(selected_user,df)
         st.title("Emoji Analysis")
 
@@ -127,14 +127,3 @@ if uploaded_file is not None:
             fig,ax = plt.subplots()
             ax.pie(emoji_df[1].head(),labels=emoji_df[0].head(),autopct="%0.2f")
             st.pyplot(fig)
-
-
-
-
-
-
-
-
-
-
-
