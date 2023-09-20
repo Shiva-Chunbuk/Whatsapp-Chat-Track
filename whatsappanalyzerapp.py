@@ -1,10 +1,17 @@
 import streamlit as st
-import preprocessor,helper
+import preprocessor
+import helper
 import matplotlib.pyplot as plt
 import seaborn as sns
+import webbrowser
 
 st.title("Whatsapp Chat Track")
 st.text("Created By Shiva Chunbuk")
+
+# button to redirect to WhatsApp for exporting chat
+if st.button("Export WhatsApp Chat"):
+    webbrowser.open("https://web.whatsapp.com/")
+    st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
