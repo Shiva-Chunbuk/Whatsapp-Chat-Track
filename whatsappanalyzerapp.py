@@ -14,19 +14,16 @@ if st.button("Export WhatsApp Chat"):
     st.markdown("[Click here to export WhatsApp chat](https://web.whatsapp.com/)", unsafe_allow_html=True)
     st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
 
-
-
-
 # File uploader
-uploaded_file = st.file_uploader("Choose a file")
+with st.form(key='file_upload_form'):
+    st.write("Upload a chat file (up to 500MB):")
+    uploaded_file = st.file_uploader("Choose a file", accept_multiple_files=False, type=["txt"])
+    submit_button = st.form_submit_button(label='Upload and Analyze')
+
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data = bytes_data.decode("utf-8")
     df = preprocessor.preprocess(data)
-
-    # Rest of your code...
-
-    # The remaining code you posted here
 
     # fetch unique users
     user_list = df['user'].unique().tolist()
