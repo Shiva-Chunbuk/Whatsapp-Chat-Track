@@ -11,9 +11,9 @@ st.text("Created By Shiva Chunbuk")
 
 # Button to redirect to WhatsApp for exporting chat
 if st.button("Export WhatsApp Chat"):
-    webbrowser.open("https://web.whatsapp.com/")
+    link = "https://web.whatsapp.com/"
+    st.markdown(f'<a href="{link}" target="_blank">Click here to export WhatsApp chat</a>', unsafe_allow_html=True)
     st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
-
 # File uploader
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
