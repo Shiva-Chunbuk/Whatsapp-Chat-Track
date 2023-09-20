@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.sidebar.title("Whatsapp Chat Track")
+st.sidebar.text("By Shiva Chunbuk") 
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
