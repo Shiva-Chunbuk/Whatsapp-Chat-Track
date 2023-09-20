@@ -9,15 +9,9 @@ import webbrowser
 st.title("WhatsApp Chat Track")
 st.text("Created By Shiva Chunbuk")
 
-# Button to redirect to WhatsApp for exporting chat
-if st.button("Export WhatsApp Chat"):
-    javascript_code = '''
-    <script>
-        window.open("https://web.whatsapp.com/", "_blank");
-    </script>
-    '''
-    st.markdown(javascript_code, unsafe_allow_html=True)
+if st.button("[Export WhatsApp Chat](https://web.whatsapp.com/)"):
     st.info("Please go to WhatsApp and export the chat. After exporting, come back here and upload the chat file.")
+
 # File uploader
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
